@@ -95,7 +95,6 @@ Replaced the text-based logo ("ABC Translations") in the header with the officia
 
 **Assets Added:**
 - `assets/images/abctranslations-logo.png` (8.8 KB) - Main logo, PNG format
-- `assets/images/abctranslations-logo-mobile.webp` (6.9 KB) - Mobile-optimized WebP format
 
 **HTML Replaced:**
 ```html
@@ -104,14 +103,11 @@ Replaced the text-based logo ("ABC Translations") in the header with the officia
 
 <!-- To: -->
 <a href="#" class="logo-link" aria-label="ABC Translations home">
-  <picture>
-    <source media="(max-width: 768px)" srcset="assets/images/abctranslations-logo-mobile.webp" type="image/webp">
-    <source media="(max-width: 768px)" srcset="assets/images/abctranslations-logo.png" type="image/png">
-    <source srcset="assets/images/abctranslations-logo-mobile.webp" type="image/webp">
-    <img src="assets/images/abctranslations-logo.png" alt="ABC Translations" class="logo">
-  </picture>
+  <img src="assets/images/abctranslations-logo.png" alt="ABC Translations" class="logo">
 </a>
 ```
+
+**Update (2025-10-30):** Simplified implementation to use single PNG logo file. Removed WebP variant and `<picture>` element for simpler, more maintainable code. PNG format has excellent browser support and the 8.8 KB size is acceptable for performance targets.
 
 **CSS Updated:**
 
@@ -125,9 +121,10 @@ Replaced the text-based logo ("ABC Translations") in the header with the officia
 .logo {
   height: 40px;
   width: auto;
+  max-width: 100%;
   display: block;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, height 0.3s ease;
 }
 ```
 
@@ -147,20 +144,22 @@ Replaced the text-based logo ("ABC Translations") in the header with the officia
 - Text-specific styles: `font-size`, `font-weight`, `letter-spacing`, `color`, `text-shadow`
 - Removed `.header .logo` from color inheritance rules (line 171)
 
-**Responsive Image Strategy:**
-- Uses `<picture>` element for art direction and format selection
-- WebP format for modern browsers (21% smaller file size)
-- PNG fallback for older browsers
-- Mobile breakpoint at 768px serves mobile-optimized version
-- Proper `alt` text for accessibility
+**Responsive Strategy:**
+- Single PNG image with CSS-based responsive sizing
+- `max-width: 100%` prevents overflow on small screens
+- Height scales responsively: 40px mobile, 50px tablet, 55px desktop
 - `width: auto` maintains aspect ratio
+- Smooth height transitions between breakpoints (0.3s ease)
+- Proper `alt` text for accessibility
+- Universal browser support with PNG format
 
 **Performance Impact:**
-- Logo images: 8.8 KB PNG + 6.9 KB WebP = 15.7 KB total
-- Only one image loads per page view (WebP on modern, PNG on legacy)
-- Estimated 3G impact: +140ms initial load (mobile WebP)
-- Images cached after first load
+- Logo image: 8.8 KB PNG
+- Single file loads on all browsers
+- Estimated 3G impact: +176ms initial load
+- Image cached after first load (no repeated penalty)
 - Filter effects are GPU-accelerated (no performance concern)
+- Simpler HTML = faster parsing
 
 **Accessibility Maintained:**
 - ✓ Proper `alt` text on img element
@@ -170,10 +169,10 @@ Replaced the text-based logo ("ABC Translations") in the header with the officia
 - ✓ Focus visible on logo-link (browser default)
 
 **Alignment with Priorities:**
-- ✓ Priority #1 (Performance): WebP format reduces payload, responsive images, cached assets
-- ✓ Priority #2 (Accessibility): Alt text, semantic markup, adequate contrast
+- ✓ Priority #1 (Performance): Single 8.8 KB PNG, responsive CSS sizing, cached assets, acceptable 3G load time
+- ✓ Priority #2 (Accessibility): Alt text, semantic markup, adequate contrast, smooth transitions
 - ✓ Priority #3 (i18n): Visual logo transcends language barriers, no localization needed
-- ✓ Priority #4 (Developer Experience): Standard HTML, no build tools, maintainable
+- ✓ Priority #4 (Developer Experience): Simple HTML img tag, no complex picture element, highly maintainable
 
 **Visual Enhancement:**
 - Professional branded logo from live site
@@ -182,9 +181,9 @@ Replaced the text-based logo ("ABC Translations") in the header with the officia
 - Responsive sizing ensures readability at all screen sizes
 
 **Files Changed:**
-- index.html (HTML line 1291-1298, CSS lines 171-174, 789-800, 743-745, 976-978, 1006-1008)
+- index.html (HTML line 1294-1296, CSS lines 171-174, 792-799, 743-745, 976-978, 1006-1008)
 - assets/images/abctranslations-logo.png (added)
-- assets/images/abctranslations-logo-mobile.webp (added)
+- assets/images/abctranslations-logo-mobile.webp (removed in simplification update)
 
 ---
 

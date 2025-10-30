@@ -792,9 +792,10 @@
         .logo {
           height: 40px;
           width: auto;
+          max-width: 100%;
           display: block;
           filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
-          transition: filter 0.3s ease;
+          transition: filter 0.3s ease, height 0.3s ease;
         }
 
         /* Navigation Menu */
@@ -1292,12 +1293,7 @@
     <header class="header" role="banner">
       <nav class="header-content" aria-label="Main navigation">
         <a href="#" class="logo-link" aria-label="ABC Translations home">
-          <picture>
-            <source media="(max-width: 768px)" srcset="assets/images/abctranslations-logo-mobile.webp" type="image/webp">
-            <source media="(max-width: 768px)" srcset="assets/images/abctranslations-logo.png" type="image/png">
-            <source srcset="assets/images/abctranslations-logo-mobile.webp" type="image/webp">
-            <img src="assets/images/abctranslations-logo.png" alt="ABC Translations" class="logo">
-          </picture>
+          <img src="assets/images/abctranslations-logo.png" alt="ABC Translations" class="logo">
         </a>
         <ul class="nav-menu" role="list">
           <li><a href="#services" class="nav-link">Services</a></li>

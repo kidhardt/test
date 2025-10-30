@@ -1,0 +1,8 @@
+# Claude Code settings (may contain tokens)
+.claude/
+
+# VS Code settings
+.vscode/
+
+# Backup files
+*-bu-*.html
