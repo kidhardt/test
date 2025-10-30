@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <!-- GitHub Pages -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="ABC Translations - Flawless, professional translations you can trust. Globalize your brand with confidence.">
+    <meta name="theme-color" content="#080a0f">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ABC Translations - Connecting Worlds, One Word at a Time">
+    <meta property="og:description" content="Flawless, professional translations you can trust. Globalize your brand with confidence.">
+    
+    <title>ABC Translations - Professional Translation Services</title>
+    
+    <!-- Optimized font loading: preconnect + preload (non-blocking) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" as="style" 
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" 
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    </noscript>
+    
+    <!-- No-JS fallback: ensure navigation works without JavaScript -->
+    <noscript>
+      <style>
+        .mobile-menu-toggle { 
+          display: none !important; 
+        }
+        .nav-menu { 
+          display: flex !important; 
+          gap: 1.5rem; 
+        }
+        .mobile-menu { 
+          display: none !important; 
+        }
+        /* Stack nav items vertically on very small screens without JS */
+        @media (max-width: 600px) {
+          .nav-menu {
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-end;
+          }
+        }
+      </style>
+    </noscript>
+    
+    <style>
+        :root {
+          --color-bg1: rgb(8, 10, 15);
+          --color-bg2: rgb(0, 17, 32);
+          --color1: 18, 113, 255;
+          --color2: 107, 74, 255;
+          --color3: 100, 100, 255;
+          --color4: 50, 160, 220;
+          --color5: 80, 47, 122;
+          --color-interactive: 140, 100, 255;
+          --circle-size: 80%;
+          --blending: hard-light;
+        }
+        
+        /* Larger circles for tablet */
+        @media (min-width: 768px) {
+          :root {
+            --circle-size: 90%;
+          }
+        }
+        
+        /* Even larger circles for desktop */
+        @media (min-width: 1024px) {
+          :root {
+            --circle-size: 100%;
+          }
+        }
+        
+        /* Maximum coverage for large desktop and ultra-wide */
+        @media (min-width: 1440px) {
+          :root {
+            --circle-size: 110%;
+          }
+        }
+        
+        /* Ultra-wide monitors - ensure complete coverage */
+        @media (min-width: 1920px) {
+          :root {
+            --circle-size: 120%;
+          }
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          text-decoration: none;
+        }
+        
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+        }
+
+        html, body {
+          font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          width: 100%;
+        }
+
+        body {
+          background: #FFF;
+          color: #0a0a0a;
+          font-family: "Montserrat", sans-serif;
+          overflow-x: hidden;
+        }
+
+        /* Restore accessible focus styling for keyboard users */
+        :focus-visible {
+          outline: 2px solid #2563eb;
+          outline-offset: 3px;
+        }
+        
+        /* Remove focus outline for mouse users but keep for keyboard */
+        :focus:not(:focus-visible) {
+          outline: none;
+        }
+
+        /* Skip link for keyboard navigation accessibility */
+        .skip-link {
+          position: absolute;
+          left: -9999px;
+          top: auto;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          z-index: 10001;
+        }
+
+        .skip-link:focus {
+          left: 16px;
+          top: 16px;
+          width: auto;
+          height: auto;
+          padding: 12px 20px;
+          background: #ffffff;
+          color: #000000;
+          border: 2px solid #2563eb;
+          border-radius: 8px;
+          font-size: 1rem;
+          font-weight: 600;
+          text-decoration: none;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          z-index: 10001;
+        }
+
+        /* Scope white text to hero and header areas only */
+        .hero-headline,
+        .hero-subheader,
+        .hero-cta,
+        .header .logo,
+        .header .nav-link,
+        .mobile-menu .nav-link {
+          color: #FFF;
+        }
+        
+        /* Ensure buttons inherit proper styling */
+        button {
+          background: transparent;
+          border: none;
+          cursor: pointer;
+        }
+
+        h1, h2, h3 {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+        }
+
+        /* Hero Section Inside Gradient */
+        .hero-section {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          z-index: 10;
+          width: 90%;
+          max-width: 1100px;
+          padding: 80px 20px 0;
+        }
+
+        .hero-headline {
+          font-size: 2.5rem;
+          font-weight: 700;
+          line-height: 1.2;
+          color: #ffffff;
+          margin-bottom: 24px;
+          text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subheader {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.95);
+          margin-bottom: 40px;
+          font-weight: 400;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .hero-cta {
+          background: #0d7aff;
+          color: #ffffff;
+          padding: 18px 48px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          border-radius: 50px;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+          cursor: pointer;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 24px rgba(13, 122, 255, 0.4);
+          -webkit-box-shadow: 0 8px 24px rgba(13, 122, 255, 0.4);
+          -moz-box-shadow: 0 8px 24px rgba(13, 122, 255, 0.4);
+          border: none;
+        }
+
+        .hero-cta:hover {
+          background: #0b68dc;
+          -webkit-transform: translateY(-2px);
+          -moz-transform: translateY(-2px);
+          -ms-transform: translateY(-2px);
+          -o-transform: translateY(-2px);
+          transform: translateY(-2px);
+          box-shadow: 0 12px 32px rgba(13, 122, 255, 0.5);
+          -webkit-box-shadow: 0 12px 32px rgba(13, 122, 255, 0.5);
+          -moz-box-shadow: 0 12px 32px rgba(13, 122, 255, 0.5);
+        }
+
+        .hero-cta:active {
+          -webkit-transform: translateY(0);
+          -moz-transform: translateY(0);
+          -ms-transform: translateY(0);
+          -o-transform: translateY(0);
+          transform: translateY(0);
+        }
+
+        /* White Content Section */
+        .content-section {
+          background: #ffffff;
+          min-height: 100vh;
+          padding: 80px 20px;
+          position: relative;
+          z-index: 20;
+        }
+
+        .content-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .content-section h2 {
+          font-size: 2rem;
+          color: #1a1a1a;
+          margin-bottom: 20px;
+        }
+
+        .content-section p {
+          font-size: 1.1rem;
+          color: #666;
+          line-height: 1.8;
+        }
+
+        /* ================================================================
+           LAYOUT UTILITIES FROM REFERENCE
+           ================================================================ */
+        .wrapper {
+          width: 100%;
+          max-width: 90rem;
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        .section {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+        }
+
+        .flow > * + * {
+          margin-top: 1rem;
+        }
+
+        .flow-lg > * + * {
+          margin-top: 2rem;
+        }
+
+        .max-w-readable {
+          max-width: 65ch;
+        }
+
+        .text-center {
+          text-align: center;
+        }
+
+        /* ================================================================
+           STATS GRID - Bold Numbers with Vibrant Colors
+           ================================================================ */
+        .stats-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          list-style: none;
+          margin-top: 3rem;
+        }
+
+        @supports not (gap: 1.5rem) {
+          .stats-grid li {
+            margin-bottom: 1.5rem;
+          }
+          
+          .stats-grid li:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .stats-grid .card {
+          position: relative;
+          overflow: hidden;
+          background-color: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 1.5rem;
+          padding: 2rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+
+        .stats-grid .card:hover {
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          -webkit-transform: translateY(-4px);
+          -moz-transform: translateY(-4px);
+          -ms-transform: translateY(-4px);
+          -o-transform: translateY(-4px);
+          transform: translateY(-4px);
+          border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        /* Pastel accent backgrounds for each stat card */
+        .stats-grid .card:nth-child(1)::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: linear-gradient(90deg, #3b82f6, #2563eb, #1d4ed8);
+          box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .stats-grid .card:nth-child(2)::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: linear-gradient(90deg, #a855f7, #7c3aed, #6d28d9);
+          box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+        }
+
+        .stats-grid .card:nth-child(3)::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: linear-gradient(90deg, #22d3ee, #06b6d4, #0891b2);
+          box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+        }
+
+        .stat-value {
+          font-size: 3rem;
+          font-weight: 900;
+          background: linear-gradient(135deg, #2563eb, #7c3aed);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          line-height: 1;
+          margin-bottom: 1rem;
+          letter-spacing: -0.035em;
+        }
+
+        /* Fallback for browsers that don't support background-clip: text */
+        @supports not (-webkit-background-clip: text) {
+          .stat-value {
+            color: #2563eb;
+            background: none;
+          }
+        }
+
+        .stat-label {
+          font-size: 1rem;
+          color: #475569;
+          line-height: 1.6;
+          font-weight: 500;
+        }
+
+        /* ================================================================
+           SERVICE CARDS - Same Style as Stats Cards
+           ================================================================ */
+        .service-cards {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          list-style: none;
+          margin-top: 3rem;
+        }
+
+        @supports not (gap: 1.5rem) {
+          .service-cards > * {
+            margin-bottom: 1.5rem;
+          }
+          
+          .service-cards > *:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .service-cards .card {
+          position: relative;
+          overflow: hidden;
+          background-color: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 1.5rem;
+          padding: 2rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+
+        .service-cards .card:hover {
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          -webkit-transform: translateY(-4px);
+          -moz-transform: translateY(-4px);
+          -ms-transform: translateY(-4px);
+          -o-transform: translateY(-4px);
+          transform: translateY(-4px);
+          border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        /* Pastel accent backgrounds for each service card */
+        .service-cards .card:nth-child(1)::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: linear-gradient(90deg, #ec4899, #db2777, #be185d);
+          box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3);
+        }
+
+        .service-cards .card:nth-child(2)::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: linear-gradient(90deg, #f59e0b, #d97706, #b45309);
+          box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+        }
+
+        .service-cards .card h3 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          line-height: 1.2;
+          margin-bottom: 1rem;
+          color: #0a1929;
+        }
+
+        .service-cards .card p {
+          font-size: 1rem;
+          line-height: 1.7;
+          color: #475569;
+          margin-bottom: 1rem;
+        }
+
+        .text-strong {
+          color: #2563eb;
+          font-weight: 700;
+        }
+
+        /* Section headings with blue to black vertical gradient */
+        .section h2 {
+          font-size: 2.5rem;
+          font-weight: 800;
+          line-height: 1.1;
+          letter-spacing: -0.03em;
+          margin-bottom: 1rem;
+          /* Solid fallback for older browsers */
+          color: #1a1a1a;
+          /* Blue to black vertical gradient for modern browsers */
+          background: -webkit-linear-gradient(top, #2563eb 0%, #1a1a1a 70%, #000000 100%);
+          background: -moz-linear-gradient(top, #2563eb 0%, #1a1a1a 70%, #000000 100%);
+          background: -o-linear-gradient(top, #2563eb 0%, #1a1a1a 70%, #000000 100%);
+          background: linear-gradient(180deg, #2563eb 0%, #1a1a1a 70%, #000000 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        /* Fallback for browsers that don't support background-clip: text */
+        @supports not (-webkit-background-clip: text) {
+          .section h2 {
+            color: #1a1a1a;
+            background: none;
+          }
+        }
+
+        .section .flow p {
+          font-size: 1.125rem;
+          line-height: 1.7;
+          color: #475569;
+          max-width: 65ch;
+        }
+
+        /* Colorful background sections */
+        #trust {
+          background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+          position: relative;
+        }
+
+        #trust::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 200px;
+          background: radial-gradient(ellipse at top center, rgba(37, 99, 235, 0.08), transparent 70%);
+          pointer-events: none;
+        }
+
+        #services {
+          background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+          position: relative;
+        }
+
+        #services::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 200px;
+          background: radial-gradient(ellipse at top center, rgba(124, 58, 237, 0.08), transparent 70%);
+          pointer-events: none;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+          .wrapper {
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+
+          .section {
+            padding-top: 4.5rem;
+            padding-bottom: 4.5rem;
+          }
+
+          .flow-lg > * + * {
+            margin-top: 3rem;
+          }
+
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .stat-value {
+            font-size: 4rem;
+          }
+
+          .service-cards .card {
+            padding: 2.5rem;
+          }
+
+          .section h2 {
+            font-size: 3rem;
+          }
+
+          .section .flow p {
+            font-size: 1.25rem;
+          }
+
+          .hero-headline {
+            font-size: 3.5rem;
+            margin-bottom: 28px;
+          }
+
+          .hero-subheader {
+            font-size: 1.25rem;
+            margin-bottom: 48px;
+          }
+
+          .hero-cta {
+            padding: 20px 56px;
+            font-size: 1.15rem;
+          }
+
+          .content-section {
+            padding: 100px 40px;
+          }
+
+          .content-section h2 {
+            font-size: 2.5rem;
+          }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+          .wrapper {
+            padding-left: 3rem;
+            padding-right: 3rem;
+          }
+
+          .section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+          }
+
+          .section h2 {
+            font-size: 3.5rem;
+          }
+
+          .section .flow p {
+            font-size: 1.35rem;
+          }
+
+          .stats-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+          }
+
+          .service-cards {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+          }
+
+          .hero-headline {
+            font-size: 4.5rem;
+            margin-bottom: 32px;
+          }
+
+          .hero-subheader {
+            font-size: 1.35rem;
+            margin-bottom: 56px;
+          }
+
+          .hero-cta {
+            padding: 22px 64px;
+            font-size: 1.2rem;
+          }
+
+          .content-section {
+            padding: 120px 60px;
+          }
+
+          .content-section h2 {
+            font-size: 3rem;
+          }
+        }
+
+        /* Header Styles with Glassmorphism Background */
+        .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 1000;
+          padding: 20px;
+          /* Fallback for browsers without backdrop-filter */
+          background: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.05);
+          /* Vendor prefixes for backdrop-filter */
+          -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+
+        /* Fallback for older browsers without backdrop-filter support */
+        @supports not (backdrop-filter: blur(20px)) {
+          .header {
+            background: rgba(255, 255, 255, 0.15);
+          }
+          
+          .header.scrolled {
+            background: rgba(3, 7, 18, 0.95);
+          }
+        }
+
+        /* Scrolled state - semi-transparent very dark blue background with colorful gradient border */
+        .header.scrolled {
+          background: rgba(3, 7, 18, 0.85);
+          -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+          border-bottom: 3px solid transparent;
+          border-image: linear-gradient(90deg, 
+            #4B0082 0%, #800080 12%, #9400D3 20%, #8A2BE2 28%, 
+            #4169E1 36%, #1E90FF 44%, #00BFFF 52%, #32CD32 60%, 
+            #FFD700 68%, #FF8C00 76%, #FF4500 84%, #B22222 92%, 
+            #8B0000 100%
+          ) 1;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+
+        /* Enhanced glow on the gradient border when scrolling */
+        .header.scrolled.scrolling-up {
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 
+                      0 8px 40px rgba(255, 140, 0, 0.4),
+                      0 4px 60px rgba(138, 43, 226, 0.3);
+        }
+
+        .header.scrolled.scrolling-down {
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 
+                      0 6px 30px rgba(255, 140, 0, 0.25);
+        }
+
+        /* Ensure logo stays white and bold on scroll */
+        .header.scrolled .logo {
+          color: #ffffff;
+          text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Ensure nav links stay white and readable on scroll */
+        .header.scrolled .nav-link {
+          color: rgba(255, 255, 255, 0.95);
+        }
+
+        .header.scrolled .nav-link:hover,
+        .header.scrolled .nav-link:focus {
+          color: #ffffff;
+          background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .header.scrolled .nav-link::after {
+          background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Ensure hamburger menu stays white on scroll */
+        .header.scrolled .hamburger,
+        .header.scrolled .hamburger::before,
+        .header.scrolled .hamburger::after {
+          background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header.scrolled .mobile-menu-toggle {
+          border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .header.scrolled .mobile-menu-toggle:hover {
+          background-color: rgba(255, 255, 255, 0.15);
+          border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .header-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: flex;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          justify-content: space-between;
+          -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+          align-items: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          padding: 0 20px;
+        }
+
+        /* Logo */
+        .logo {
+          font-size: 1.5rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          color: #ffffff;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+          display: none;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          gap: 32px;
+        }
+        
+        /* Fallback for browsers without gap support */
+        @supports not (gap: 32px) {
+          .nav-menu li {
+            margin-right: 32px;
+          }
+          
+          .nav-menu li:last-child {
+            margin-right: 0;
+          }
+        }
+
+        .nav-link {
+          padding: 8px 0;
+          color: rgba(255, 255, 255, 0.95);
+          font-size: 0.95rem;
+          font-weight: 500;
+          letter-spacing: 0.3px;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .nav-link::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.9);
+          -webkit-transition: width 0.3s ease;
+          -moz-transition: width 0.3s ease;
+          -o-transition: width 0.3s ease;
+          transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+          color: #ffffff;
+        }
+
+        .nav-link:hover::after {
+          width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          background: transparent;
+          transition: all 0.3s ease;
+        }
+
+        .hamburger {
+          position: relative;
+          width: 24px;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 2px;
+          transition: all 0.3s ease;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+          content: "";
+          position: absolute;
+          width: 24px;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 2px;
+          transition: all 0.3s ease;
+        }
+
+        .hamburger::before {
+          top: -7px;
+        }
+
+        .hamburger::after {
+          top: 7px;
+        }
+
+        /* Animated hamburger when open */
+        .mobile-menu-toggle.active .hamburger {
+          background: transparent;
+        }
+
+        .mobile-menu-toggle.active .hamburger::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+
+        .mobile-menu-toggle.active .hamburger::after {
+          top: 0;
+          transform: rotate(-45deg);
+        }
+
+        /* Mobile menu overlay */
+        .mobile-menu {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.97);
+          backdrop-filter: blur(10px);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 2rem;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+          z-index: 999;
+        }
+
+        .mobile-menu.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .mobile-menu .nav-link {
+          font-size: 1.5rem;
+          padding: 1rem 2rem;
+          display: block;
+          text-align: center;
+        }
+
+        .mobile-menu .nav-link::after {
+          display: none;
+        }
+
+        /* Small tablets and below - show hamburger, hide desktop menu */
+        @media (max-width: 899px) {
+          .nav-menu {
+            display: none;
+          }
+
+          .mobile-menu-toggle {
+            display: flex;
+          }
+        }
+
+        /* Tablet and larger - hide hamburger, show desktop menu */
+        @media (min-width: 900px) {
+          .mobile-menu-toggle {
+            display: none;
+          }
+
+          .mobile-menu {
+            display: none !important;
+          }
+
+          .nav-menu {
+            display: flex;
+          }
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+          .header {
+            padding: 24px 32px;
+          }
+
+          .header-content {
+            padding: 0 32px;
+          }
+
+          .logo {
+            font-size: 1.75rem;
+          }
+
+          .nav-link {
+            font-size: 1rem;
+          }
+        }
+
+        /* Large tablet and above - show desktop nav */
+        @media (min-width: 900px) {
+          .nav-menu {
+            display: flex;
+          }
+
+          .mobile-menu-toggle {
+            display: none;
+          }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+          .header {
+            padding: 32px 48px;
+          }
+
+          .header-content {
+            padding: 0 48px;
+          }
+
+          .logo {
+            font-size: 2rem;
+          }
+
+          .nav-link {
+            font-size: 1.05rem;
+          }
+
+          .nav-menu {
+            gap: 40px;
+          }
+        }
+
+        @keyframes moveInCircle {
+          0% {
+            transform: rotate(0deg);
+          }
+          50% {
+            transform: rotate(180deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes moveVertical {
+          0% {
+            transform: translateY(-50%);
+          }
+          50% {
+            transform: translateY(50%);
+          }
+          100% {
+            transform: translateY(-50%);
+          }
+        }
+        @keyframes moveHorizontal {
+          0% {
+            transform: translateX(-50%) translateY(-10%);
+          }
+          50% {
+            transform: translateX(50%) translateY(10%);
+          }
+          100% {
+            transform: translateX(-50%) translateY(-10%);
+          }
+        }
+        .gradient-bg {
+          width: 100vw;
+          height: 100vh;
+          position: relative;
+          overflow: hidden;
+          background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+          top: 0;
+          left: 0;
+        }
+        .gradient-bg .svgBlur {
+          display: none;
+        }
+        .gradient-bg .noiseBg {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          mix-blend-mode: soft-light;
+          opacity: 0.3;
+        }
+        .gradient-bg .gradients-container {
+          filter: url(#goo) blur(40px);
+          width: 100%;
+          height: 100%;
+        }
+        .gradient-bg .g1 {
+          position: absolute;
+          background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+          mix-blend-mode: var(--blending);
+          width: var(--circle-size);
+          height: var(--circle-size);
+          top: calc(50% - var(--circle-size) / 2);
+          left: calc(50% - var(--circle-size) / 2);
+          transform-origin: center center;
+          animation: moveVertical 30s ease infinite;
+          opacity: 1;
+        }
+        .gradient-bg .g2 {
+          position: absolute;
+          background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+          mix-blend-mode: var(--blending);
+          width: var(--circle-size);
+          height: var(--circle-size);
+          top: calc(50% - var(--circle-size) / 2);
+          left: calc(50% - var(--circle-size) / 2);
+          transform-origin: calc(50% - 400px);
+          animation: moveInCircle 20s reverse infinite;
+          opacity: 1;
+        }
+        .gradient-bg .g3 {
+          position: absolute;
+          background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+          mix-blend-mode: var(--blending);
+          width: var(--circle-size);
+          height: var(--circle-size);
+          top: calc(50% - var(--circle-size) / 2 + 200px);
+          left: calc(50% - var(--circle-size) / 2 - 500px);
+          transform-origin: calc(50% + 400px);
+          animation: moveInCircle 40s linear infinite;
+          opacity: 1;
+        }
+        .gradient-bg .g4 {
+          position: absolute;
+          background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+          mix-blend-mode: var(--blending);
+          width: var(--circle-size);
+          height: var(--circle-size);
+          top: calc(50% - var(--circle-size) / 2);
+          left: calc(50% - var(--circle-size) / 2);
+          transform-origin: calc(50% - 200px);
+          animation: moveHorizontal 40s ease infinite;
+          opacity: 0.7;
+        }
+        .gradient-bg .g5 {
+          position: absolute;
+          background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+          mix-blend-mode: var(--blending);
+          width: calc(var(--circle-size) * 2);
+          height: calc(var(--circle-size) * 2);
+          top: calc(50% - var(--circle-size));
+          left: calc(50% - var(--circle-size));
+          transform-origin: calc(50% - 800px) calc(50% + 200px);
+          animation: moveInCircle 20s ease infinite;
+          opacity: 1;
+        }
+        .gradient-bg .interactive {
+          position: absolute;
+          background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+          mix-blend-mode: var(--blending);
+          width: 100%;
+          height: 100%;
+          top: -50%;
+          left: -50%;
+          opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+      <nav class="header-content" aria-label="Main navigation">
+        <div class="logo" aria-label="ABC Translations home">ABC Translations</div>
+        <ul class="nav-menu" role="list">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#industries" class="nav-link">Industries</a></li>
+          <li><a href="#insights" class="nav-link">Insights</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+      </nav>
+      
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#industries" class="nav-link">Industries</a>
+        <a href="#insights" class="nav-link">Insights</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+      <section class="gradient-bg" aria-label="Hero section">
+      <svg 
+           viewBox="0 0 1000 1000"
+           xmlns='http://www.w3.org/2000/svg'
+           class="noiseBg"
+           aria-hidden="true"
+           preserveAspectRatio="none"
+           >
+        <filter id='noiseFilterBg'>
+          <feTurbulence 
+                        type='fractalNoise'
+                        baseFrequency='0.65'
+                        numOctaves='3'
+                        stitchTiles='stitch' />
+        </filter>
+        <rect
+              width='100%'
+              height='100%'
+              preserveAspectRatio="xMidYMid meet"
+              filter='url(#noiseFilterBg)' />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur" aria-hidden="true">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="gradients-container" aria-hidden="true">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="interactive"></div>
+      </div>
+      
+      <!-- Hero Content Inside Gradient -->
+      <div class="hero-section">
+        <h1 class="hero-headline">Connecting Worlds,<br>One Word at a Time.</h1>
+        <p class="hero-subheader">Flawless, professional translations you can trust. Globalize your brand with confidence.</p>
+        <button class="hero-cta" type="button">Start Your Project</button>
+      </div>
+    </section>
+
+    <!-- White Space Section for New Work -->
+    <!-- Trust Signals -->
+    <section class="section wrapper" id="trust" aria-labelledby="trust-heading">
+      <div class="flow max-w-readable">
+        <h2 id="trust-heading">
+          You Should Know Who You're Dealing With
+        </h2>
+        <p>
+          Trust is earned with transparency, not hype. Here are concrete numbers:
+        </p>
+      </div>
+      
+      <ul class="stats-grid" aria-label="Trust statistics">
+        <li class="card">
+          <div class="stat-value">4.9/5</div>
+          <div class="stat-label">Average client rating over 500+ reviews</div>
+        </li>
+
+        <li class="card">
+          <div class="stat-value">24h</div>
+          <div class="stat-label">Typical turnaround for standard requests</div>
+        </li>
+
+        <li class="card">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Written quotes provided before payment</div>
+        </li>
+      </ul>
+    </section>
+    
+    <!-- Services -->
+    <section class="section wrapper" id="services" aria-labelledby="services-heading">
+      <div class="flow max-w-readable">
+        <h2 id="services-heading">What We Do (In Plain English)</h2>
+        <p>
+          We deliver precise, human-reviewed work. No upsell pressure. No "limited time offers."
+          Just: what you need, when you need it, what it costs.
+        </p>
+      </div>
+
+      <div class="service-cards">
+        <article class="card flow" aria-labelledby="service1-title">
+          <h3 id="service1-title">Certified Translation</h3>
+          <p>
+            Official document translations prepared, reviewed, and delivered with certification
+            for submission to agencies, courts, or institutions.
+          </p>
+          <p class="text-strong"><strong>Typical delivery: 24 hours</strong></p>
+        </article>
+
+        <article class="card flow" aria-labelledby="service2-title">
+          <h3 id="service2-title">Translation Consulting</h3>
+          <p>
+            Direct access to translation specialists who communicate in plain language.
+            We explain what you need, accuracy requirements, and timeline expectations.
+          </p>
+          <p class="text-strong"><strong>Clear scope, flat rate</strong></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+    <!-- Polyfills for older browsers -->
+    <script>
+        // Polyfill for requestAnimationFrame (IE9)
+        (function() {
+            var lastTime = 0;
+            var vendors = ['webkit', 'moz'];
+            for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+                window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+                window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || 
+                                               window[vendors[x]+'CancelRequestAnimationFrame'];
+            }
+
+            if (!window.requestAnimationFrame)
+                window.requestAnimationFrame = function(callback) {
+                    var currTime = new Date().getTime();
+                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                    var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+                      timeToCall);
+                    lastTime = currTime + timeToCall;
+                    return id;
+                };
+
+            if (!window.cancelAnimationFrame)
+                window.cancelAnimationFrame = function(id) {
+                    clearTimeout(id);
+                };
+        }());
+
+        // Polyfill for classList (IE9)
+        if (!("classList" in document.documentElement)) {
+            Object.defineProperty(HTMLElement.prototype, 'classList', {
+                get: function() {
+                    var self = this;
+                    function update(fn) {
+                        return function(value) {
+                            var classes = self.className.split(/\s+/g);
+                            var index = classes.indexOf(value);
+                            fn(classes, index, value);
+                            self.className = classes.join(" ");
+                        };
+                    }
+                    return {
+                        add: update(function(classes, index, value) {
+                            if (!~index) classes.push(value);
+                        }),
+                        remove: update(function(classes, index) {
+                            if (~index) classes.splice(index, 1);
+                        }),
+                        toggle: update(function(classes, index, value) {
+                            if (~index)
+                                classes.splice(index, 1);
+                            else
+                                classes.push(value);
+                        }),
+                        contains: function(value) {
+                            return !!~self.className.split(/\s+/g).indexOf(value);
+                        }
+                    };
+                }
+            });
+        }
+    </script>
+
+    <script>
+        // Polyfill for requestAnimationFrame (IE9)
+        (function() {
+            var lastTime = 0;
+            var vendors = ['webkit', 'moz'];
+            for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+                window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+                window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || 
+                                               window[vendors[x]+'CancelRequestAnimationFrame'];
+            }
+
+            if (!window.requestAnimationFrame)
+                window.requestAnimationFrame = function(callback) {
+                    var currTime = new Date().getTime();
+                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                    var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+                      timeToCall);
+                    lastTime = currTime + timeToCall;
+                    return id;
+                };
+
+            if (!window.cancelAnimationFrame)
+                window.cancelAnimationFrame = function(id) {
+                    clearTimeout(id);
+                };
+        }());
+
+        // Polyfill for classList (IE9)
+        if (!("classList" in document.documentElement)) {
+            Object.defineProperty(HTMLElement.prototype, 'classList', {
+                get: function() {
+                    var self = this;
+                    function update(fn) {
+                        return function(value) {
+                            var classes = self.className.split(/\s+/g);
+                            var index = classes.indexOf(value);
+                            fn(classes, index, value);
+                            self.className = classes.join(" ");
+                        };
+                    }
+                    return {
+                        add: update(function(classes, index, value) {
+                            if (!~index) classes.push(value);
+                        }),
+                        remove: update(function(classes, index) {
+                            if (~index) classes.splice(index, 1);
+                        }),
+                        toggle: update(function(classes, index, value) {
+                            if (~index)
+                                classes.splice(index, 1);
+                            else
+                                classes.push(value);
+                        }),
+                        contains: function(value) {
+                            return !!~self.className.split(/\s+/g).indexOf(value);
+                        }
+                    };
+                }
+            });
+        }
+    </script>
+
+    <script>
+        (function () {
+            // Check if user prefers reduced motion
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            if (!reduceMotion) {
+                // Full interactive animation for users who are okay with motion
+                document.addEventListener('DOMContentLoaded', function() {
+                    const interBubble = document.querySelector('.interactive');
+                    const header = document.querySelector('.header');
+                    
+                    if (!interBubble) return;
+                    
+                    let curX = 0;
+                    let curY = 0;
+                    let tgX = 0;
+                    let tgY = 0;
+                    let rafId = null;
+                    let running = false;
+                    
+                    const step = function() {
+                        curX += (tgX - curX) / 20;
+                        curY += (tgY - curY) / 20;
+                        interBubble.style.transform = 'translate(' + Math.round(curX) + 'px, ' + Math.round(curY) + 'px)';
+                        rafId = requestAnimationFrame(step);
+                    };
+                    
+                    const start = function() {
+                        if (!running) {
+                            running = true;
+                            rafId = requestAnimationFrame(step);
+                        }
+                    };
+                    
+                    const stop = function() {
+                        running = false;
+                        if (rafId) {
+                            cancelAnimationFrame(rafId);
+                            rafId = null;
+                        }
+                    };
+                    
+                    // Mouse support
+                    window.addEventListener('mousemove', function(event) {
+                        tgX = event.clientX;
+                        tgY = event.clientY;
+                    }, {passive: true});
+                    
+                    // Touch support for mobile
+                    window.addEventListener('touchmove', function(event) {
+                        if (event.touches.length > 0) {
+                            tgX = event.touches[0].clientX;
+                            tgY = event.touches[0].clientY;
+                        }
+                    }, { passive: true });
+                    
+                    // Optional: Set initial position on touch start
+                    window.addEventListener('touchstart', function(event) {
+                        if (event.touches.length > 0) {
+                            tgX = event.touches[0].clientX;
+                            tgY = event.touches[0].clientY;
+                        }
+                    }, { passive: true });
+                    
+                    // Pause animation when tab is hidden (saves battery/CPU)
+                    document.addEventListener('visibilitychange', function() {
+                        if (document.hidden) {
+                            stop();
+                        } else {
+                            start();
+                        }
+                    });
+                    
+                    // Start the animation
+                    start();
+
+                    // Scroll detection for header background and rainbow border illumination
+                    let lastScrollTop = 0;
+                    let ticking = false;
+                    
+                    // Feature detection for passive event listeners
+                    var passiveSupported = false;
+                    try {
+                        var options = Object.defineProperty({}, "passive", {
+                            get: function() {
+                                passiveSupported = true;
+                            }
+                        });
+                        window.addEventListener("test", null, options);
+                    } catch(err) {}
+                    
+                    var scrollOptions = passiveSupported ? { passive: true } : false;
+                    
+                    window.addEventListener('scroll', function() {
+                        if (!ticking) {
+                            window.requestAnimationFrame(function() {
+                                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                                
+                                // Add scrolled class when user scrolls past 50px
+                                if (scrollTop > 50) {
+                                    header.classList.add('scrolled');
+                                    
+                                    // Detect scroll direction
+                                    if (scrollTop < lastScrollTop) {
+                                        // Scrolling up - illuminate with intense rainbow glow
+                                        header.classList.add('scrolling-up');
+                                        header.classList.remove('scrolling-down');
+                                    } else {
+                                        // Scrolling down - subtle rainbow glow
+                                        header.classList.add('scrolling-down');
+                                        header.classList.remove('scrolling-up');
+                                    }
+                                } else {
+                                    header.classList.remove('scrolled');
+                                    header.classList.remove('scrolling-up');
+                                    header.classList.remove('scrolling-down');
+                                }
+                                
+                                lastScrollTop = scrollTop;
+                                ticking = false;
+                            });
+                            ticking = true;
+                        }
+                    }, scrollOptions);
+
+                    // Mobile menu toggle
+                    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    const mobileMenuLinks = document.querySelectorAll('.mobile-menu .nav-link');
+                    
+                    if (mobileMenuToggle && mobileMenu) {
+                        // Toggle menu on button click
+                        mobileMenuToggle.addEventListener('click', function() {
+                            const isOpen = mobileMenuToggle.classList.contains('active');
+                            
+                            if (isOpen) {
+                                // Close menu
+                                mobileMenuToggle.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                                document.body.style.overflow = '';
+                            } else {
+                                // Open menu
+                                mobileMenuToggle.classList.add('active');
+                                mobileMenu.classList.add('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                                document.body.style.overflow = 'hidden';
+                            }
+                        });
+                        
+                        // Close menu when clicking on a link
+                        mobileMenuLinks.forEach(function(link) {
+                            link.addEventListener('click', function() {
+                                mobileMenuToggle.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                                document.body.style.overflow = '';
+                            });
+                        });
+                        
+                        // Close menu when clicking outside
+                        mobileMenu.addEventListener('click', function(e) {
+                            if (e.target === mobileMenu) {
+                                mobileMenuToggle.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                                document.body.style.overflow = '';
+                            }
+                        });
+                    }
+                });
+            } else {
+                // Static fallback for users who prefer reduced motion
+                document.addEventListener('DOMContentLoaded', function() {
+                    const interBubble = document.querySelector('.interactive');
+                    const header = document.querySelector('.header');
+                    
+                    if (interBubble) {
+                        // Set static position with slightly reduced opacity
+                        interBubble.style.opacity = '0.7';
+                        interBubble.style.transform = 'translate(0, 0)';
+                    }
+
+                    // Still handle scroll and mobile menu for reduced motion users
+                    let lastScrollTop = 0;
+                    let ticking = false;
+                    
+                    var passiveSupported = false;
+                    try {
+                        var options = Object.defineProperty({}, "passive", {
+                            get: function() {
+                                passiveSupported = true;
+                            }
+                        });
+                        window.addEventListener("test", null, options);
+                    } catch(err) {}
+                    
+                    var scrollOptions = passiveSupported ? { passive: true } : false;
+                    
+                    window.addEventListener('scroll', function() {
+                        if (!ticking) {
+                            window.requestAnimationFrame(function() {
+                                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                                
+                                if (scrollTop > 50) {
+                                    header.classList.add('scrolled');
+                                    
+                                    if (scrollTop < lastScrollTop) {
+                                        header.classList.add('scrolling-up');
+                                        header.classList.remove('scrolling-down');
+                                    } else {
+                                        header.classList.add('scrolling-down');
+                                        header.classList.remove('scrolling-up');
+                                    }
+                                } else {
+                                    header.classList.remove('scrolled');
+                                    header.classList.remove('scrolling-up');
+                                    header.classList.remove('scrolling-down');
+                                }
+                                
+                                lastScrollTop = scrollTop;
+                                ticking = false;
+                            });
+                            ticking = true;
+                        }
+                    }, scrollOptions);
+
+                    // Mobile menu toggle
+                    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    const mobileMenuLinks = document.querySelectorAll('.mobile-menu .nav-link');
+                    
+                    if (mobileMenuToggle && mobileMenu) {
+                        mobileMenuToggle.addEventListener('click', function() {
+                            const isOpen = mobileMenuToggle.classList.contains('active');
+                            
+                            if (isOpen) {
+                                mobileMenuToggle.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                                document.body.style.overflow = '';
+                            } else {
+                                mobileMenuToggle.classList.add('active');
+                                mobileMenu.classList.add('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                                document.body.style.overflow = 'hidden';
+                            }
+                        });
+                        
+                        mobileMenuLinks.forEach(function(link) {
+                            link.addEventListener('click', function() {
+                                mobileMenuToggle.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                                document.body.style.overflow = '';
+                            });
+                        });
+                        
+                        mobileMenu.addEventListener('click', function(e) {
+                            if (e.target === mobileMenu) {
+                                mobileMenuToggle.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                                document.body.style.overflow = '';
+                            }
+                        });
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
