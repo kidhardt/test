@@ -168,6 +168,7 @@
         /* Scope white text to hero and header areas only */
         .hero-headline,
         .hero-subheader,
+        .hero-cta,
         .header .logo,
         .header .nav-link,
         .mobile-menu .nav-link {
@@ -220,56 +221,27 @@
           margin-right: auto;
         }
 
-        /* Center Button - ABC Translations branded button */
-        .centerButton {
-          width: 180px;
-          height: 60px;
-          position: relative;
-          display: inline-block;
-        }
-
-        .btn {
-          width: 180px;
-          height: 60px;
+        .hero-cta {
+          background: #0b68dc;
+          color: #ffffff;
+          padding: 18px 48px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          border-radius: 50px;
           cursor: pointer;
-          background: #ff6a13;
-          border: 2px solid #91C9FF;
-          border-radius: 8px;
-          outline: none;
-          transition: 1s ease-in-out;
-          position: relative;
-          overflow: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 24px rgba(13, 122, 255, 0.4);
+          border: none;
         }
 
-        .btn svg {
-          position: absolute;
-          left: 0;
-          top: 0;
-          fill: none;
-          stroke: #fff;
-          stroke-dasharray: 150 480;
-          stroke-dashoffset: 200;
-          transition: 1s ease-in-out;
-          border-radius: 8px;
+        .hero-cta:hover {
+          background: #0a5ac7;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 32px rgba(13, 122, 255, 0.5);
         }
 
-        .btn:hover {
-          transition: 1s ease-in-out;
-          background: #4F95DA;
-          border-radius: 8px;
-        }
-
-        .btn:hover svg {
-          stroke-dashoffset: -480;
-          border-radius: 8px;
-        }
-
-        .btn span {
-          color: white;
-          font-size: 18px;
-          font-weight: bold;
-          position: relative;
-          z-index: 1;
+        .hero-cta:active {
+          transform: translateY(0);
         }
 
         /* White Content Section */
@@ -621,6 +593,10 @@
             margin-bottom: 48px;
           }
 
+          .hero-cta {
+            padding: 20px 56px;
+            font-size: 1.15rem;
+          }
 
           .content-section {
             padding: 100px 40px;
@@ -671,6 +647,10 @@
             margin-bottom: 56px;
           }
 
+          .hero-cta {
+            padding: 22px 64px;
+            font-size: 1.2rem;
+          }
 
           .content-section {
             padding: 120px 60px;
@@ -1353,14 +1333,7 @@
       <div class="hero-section">
         <h1 class="hero-headline">Connecting Worlds,<br>One Word at a Time.</h1>
         <p class="hero-subheader">Flawless, professional translations you can trust. Globalize your brand with confidence.</p>
-        <div class="centerButton">
-          <button class="btn" type="button">
-            <svg width="180px" height="60px">
-              <rect x="0" y="0" fill="none" width="180" height="60" rx="8" ry="8"/>
-            </svg>
-            <span>Start Your Project</span>
-          </button>
-        </div>
+        <button class="hero-cta" type="button">Start Your Project</button>
       </div>
     </section>
 
