@@ -112,11 +112,18 @@
           width: 100%;
         }
 
+        html {
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+        }
+
         body {
           background: #FFF;
           color: #0a0a0a;
           font-family: "Montserrat", sans-serif;
           overflow-x: hidden;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
         }
 
         /* Restore accessible focus styling for keyboard users */
