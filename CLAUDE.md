@@ -30,10 +30,61 @@ This is a **zero-build, pure HTML/CSS/JavaScript static website** for ABC Transl
 ├── index.html          # Main landing page (production file)
 ├── index-bu.html       # Backup copy for safety
 ├── docs/
+│   ├── decisions.md               # Technical decisions log with To Do list
 │   ├── priorities.md              # Project priorities and achievements
 │   └── revert-github-instructions.md  # Git version control guide
 └── .claude/            # Claude Code settings (gitignored)
 ```
+
+## Documentation (`/docs` folder)
+
+### `decisions.md` - Technical Decisions Log
+**Purpose:** Records all significant technical decisions with full justification, implementation details, and removed code.
+
+**Structure:**
+- **To Do section** - Deferred items from best practices reviews (check here first!)
+- **Decision entries** - Chronological log of technical choices made
+
+**When to update:**
+- After making architectural decisions (vendor prefixes, semantic structure, etc.)
+- When evaluating best practices and choosing to implement or defer
+- When removing/refactoring significant code
+
+**Example entry format:**
+```markdown
+## Decision: [Title]
+**Date:** YYYY-MM-DD
+**Context:** What prompted this
+**Analysis:** Technical research and trade-offs
+**Decision:** What we chose
+**Justification:** Why, aligned with priorities
+**Implementation:** What changed
+**Impact:** Results and benefits
+```
+
+### `priorities.md` - Project Goals and Achievements
+**Purpose:** Documents the four core priorities and tracks achievements against them.
+
+**Contains:**
+- Ranked priorities with success metrics
+- Technical implementation guidelines for each priority
+- **Successes section** - What's been achieved (update after major milestones)
+- **Recent Improvements** - Latest changes (update with each significant improvement)
+
+**When to update:**
+- After completing features that advance priority goals
+- After performance optimizations
+- After accessibility improvements
+
+### `revert-github-instructions.md` - Git Recovery Guide
+**Purpose:** Step-by-step instructions for reverting to previous versions.
+
+**Contains:**
+- How to view commit history
+- Multiple methods to revert changes
+- Best practices for version control
+
+**When to reference:** When you need to undo changes or restore previous versions.
 
 ## Development Workflow
 

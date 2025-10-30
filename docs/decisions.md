@@ -4,6 +4,50 @@ This document records significant technical decisions made for this project, inc
 
 ---
 
+## To Do
+
+**Purpose:** Items identified during best practices review that should be implemented but are deferred for later.
+
+### HTML Semantic Structure Completion
+
+**Priority:** Medium
+**Effort:** Small to Medium
+**Context:** During 2026 best practices review, we assessed HTML semantic structure. Current implementation is excellent (proper landmarks, heading hierarchy, ARIA), but missing some elements for complete 1.1 compliance.
+
+**Items to implement:**
+
+1. **Add `<footer>` element**
+   - Status: Not implemented
+   - Location: After `</main>`, before `</body>`
+   - Should include: Site info, copyright, social links, secondary navigation
+   - Benefits: Completes semantic landmark structure, improves screen reader navigation
+
+2. **Add Contact Form with proper semantics**
+   - Status: Not implemented
+   - Location: New section or connected to "Start Your Project" button
+   - Requirements:
+     - All `<input>` fields must have associated `<label>` elements
+     - Use `for` and `id` attributes to connect labels to inputs
+     - Add `aria-describedby` for error messages and helper text
+     - Include semantic error/validation structure
+   - Example structure documented in 1.1 HTML Semantic Structure requirements
+   - Benefits: Completes form accessibility requirements, WCAG 2.2 AA+ compliance
+
+3. **Add `<figure>` and `<figcaption>` for images with captions** (when images are added)
+   - Status: Not applicable yet (no content images in current design)
+   - When needed: Use semantic figure elements instead of divs for images with captions
+   - Benefits: Proper semantic association of images with their descriptions
+
+**Success Criteria:**
+- [ ] Site has complete semantic landmark structure including footer
+- [ ] All forms pass WCAG 2.2 AA+ validation
+- [ ] All form fields have visible and programmatic labels
+- [ ] aria-describedby connects error messages to fields
+- [ ] Site passes W3C HTML validator with no semantic errors
+- [ ] Content remains logical and readable when CSS is disabled
+
+---
+
 ## Decision: Remove Outdated CSS Vendor Prefixes
 
 **Date:** 2025-10-30
