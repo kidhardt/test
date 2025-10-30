@@ -84,6 +84,110 @@ This document records significant technical decisions made for this project, inc
 
 ---
 
+## Decision: Replace Text Logo with ABC Translations Image Logo
+
+**Date:** 2025-10-30
+
+**Context:**
+Replaced the text-based logo ("ABC Translations") in the header with the official ABC Translations logo images from the live site. Implemented responsive image loading with WebP format for modern browsers and PNG fallback.
+
+**Implementation:**
+
+**Assets Added:**
+- `assets/images/abctranslations-logo.png` (8.8 KB) - Main logo, PNG format
+- `assets/images/abctranslations-logo-mobile.webp` (6.9 KB) - Mobile-optimized WebP format
+
+**HTML Replaced:**
+```html
+<!-- Changed from: -->
+<div class="logo" aria-label="ABC Translations home">ABC Translations</div>
+
+<!-- To: -->
+<a href="#" class="logo-link" aria-label="ABC Translations home">
+  <picture>
+    <source media="(max-width: 768px)" srcset="assets/images/abctranslations-logo-mobile.webp" type="image/webp">
+    <source media="(max-width: 768px)" srcset="assets/images/abctranslations-logo.png" type="image/png">
+    <source srcset="assets/images/abctranslations-logo-mobile.webp" type="image/webp">
+    <img src="assets/images/abctranslations-logo.png" alt="ABC Translations" class="logo">
+  </picture>
+</a>
+```
+
+**CSS Updated:**
+
+**Base styles (mobile):**
+```css
+.logo-link {
+  display: inline-block;
+  line-height: 0;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+  transition: filter 0.3s ease;
+}
+```
+
+**Scrolled state:**
+```css
+.header.scrolled .logo {
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.6));
+}
+```
+
+**Responsive sizing:**
+- Mobile (default): 40px height
+- Tablet (768px+): 50px height
+- Desktop (1024px+): 55px height
+
+**CSS Removed:**
+- Text-specific styles: `font-size`, `font-weight`, `letter-spacing`, `color`, `text-shadow`
+- Removed `.header .logo` from color inheritance rules (line 171)
+
+**Responsive Image Strategy:**
+- Uses `<picture>` element for art direction and format selection
+- WebP format for modern browsers (21% smaller file size)
+- PNG fallback for older browsers
+- Mobile breakpoint at 768px serves mobile-optimized version
+- Proper `alt` text for accessibility
+- `width: auto` maintains aspect ratio
+
+**Performance Impact:**
+- Logo images: 8.8 KB PNG + 6.9 KB WebP = 15.7 KB total
+- Only one image loads per page view (WebP on modern, PNG on legacy)
+- Estimated 3G impact: +140ms initial load (mobile WebP)
+- Images cached after first load
+- Filter effects are GPU-accelerated (no performance concern)
+
+**Accessibility Maintained:**
+- ✓ Proper `alt` text on img element
+- ✓ Semantic link wrapper with aria-label
+- ✓ Drop-shadow maintains visibility on all backgrounds
+- ✓ Logo is clickable navigation element (home link)
+- ✓ Focus visible on logo-link (browser default)
+
+**Alignment with Priorities:**
+- ✓ Priority #1 (Performance): WebP format reduces payload, responsive images, cached assets
+- ✓ Priority #2 (Accessibility): Alt text, semantic markup, adequate contrast
+- ✓ Priority #3 (i18n): Visual logo transcends language barriers, no localization needed
+- ✓ Priority #4 (Developer Experience): Standard HTML, no build tools, maintainable
+
+**Visual Enhancement:**
+- Professional branded logo from live site
+- Consistent brand identity across platforms
+- Drop-shadow effect maintains visibility over hero gradient
+- Responsive sizing ensures readability at all screen sizes
+
+**Files Changed:**
+- index.html (HTML line 1291-1298, CSS lines 171-174, 789-800, 743-745, 976-978, 1006-1008)
+- assets/images/abctranslations-logo.png (added)
+- assets/images/abctranslations-logo-mobile.webp (added)
+
+---
+
 ## Decision: Replace Hero CTA Button with ABC Translations Branded Button
 
 **Date:** 2025-10-30
