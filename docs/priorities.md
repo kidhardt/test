@@ -104,6 +104,7 @@ The site is architected to deliver fast, smooth, and enjoyable experiences to:
 - ✓ Documentation for reverting changes available
 
 **Recent Improvements**
+- **2026 Best Practices: Vendor Prefix Cleanup** - Removed 49 lines (~2,100 bytes) of outdated CSS vendor prefixes that provided no benefit while slowing down vulnerable users. Saved ~42ms on 3G connections. Retained only essential prefixes (text-size-adjust, font-smoothing, backdrop-filter, background-clip). Full analysis in docs/decisions.md.
 - Removed duplicate polyfill code blocks for cleaner codebase
 - Added text rendering improvements for better cross-platform display
 - Established version control best practices
