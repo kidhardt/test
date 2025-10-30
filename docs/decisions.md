@@ -55,31 +55,24 @@ This document records significant technical decisions made for this project, inc
 **Items to implement:**
 
 1. **Add font-display: swap to Google Fonts**
-   - Status: Not implemented
-   - Current: Fonts block text rendering (380ms LCP delay)
-   - Change: Add `&display=swap` to font URL
-   - Location: Line ~21 in index.html (font preload href)
-   - Expected impact: ~150-300ms LCP improvement
-   - Benefits: Text visible immediately with fallback font, no layout shift
-   - Effort: Change 1 URL parameter
+   - Status: ✓ Already implemented (verified Oct 30, 2025)
+   - Found: `&display=swap` already present in font URLs (lines 21, 25)
+   - Impact: Text shows immediately with fallback font, no render blocking
+   - No changes needed - optimization already in place
 
 2. **Fix "Start Your Project" button contrast (WCAG violation)**
-   - Status: Not implemented
-   - Current: White text on `#0d7aff` blue - insufficient contrast
-   - PageSpeed flagged as accessibility issue
-   - Options:
-     - Change button color to `#0b68dc` (darker blue, better contrast)
-     - OR make text bold + add subtle text-shadow
-   - Location: `.hero-cta` style in index.html (~line 225)
-   - Expected impact: WCAG 2.2 AA compliance
-   - Benefits: Better readability, accessibility compliance
-   - Effort: Change 1 color value
+   - Status: ✓ Implemented (Oct 30, 2025)
+   - Changed: `.hero-cta` background `#0d7aff` → `#0b68dc` (darker blue)
+   - Changed: `.hero-cta:hover` background `#0b68dc` → `#0a5ac7` (even darker)
+   - Impact: Improved contrast ratio, meets WCAG 2.2 AA (4.5:1 minimum)
+   - Result: Accessibility compliance, better readability
+   - Location: index.html lines 225, 238
 
 **Success Criteria:**
-- [ ] Font-display: swap implemented and fonts load without blocking
-- [ ] Button contrast ratio meets WCAG AA (4.5:1 minimum)
-- [ ] PageSpeed re-tested showing improved LCP
-- [ ] No layout shifts introduced (maintain CLS < 0.1)
+- [x] Font-display: swap implemented and fonts load without blocking ✓ (Already present in lines 21, 25)
+- [x] Button contrast ratio meets WCAG AA (4.5:1 minimum) ✓ (Changed #0d7aff → #0b68dc)
+- [ ] PageSpeed re-tested showing improved LCP (Ready to test)
+- [ ] No layout shifts introduced (maintain CLS < 0.1) (Ready to test)
 
 **Future consideration (deferred):**
 3. **CSS Minification** (~3 KB savings, ~110ms on 3G)
