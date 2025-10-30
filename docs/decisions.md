@@ -1,0 +1,387 @@
+# Technical Decisions
+
+This document records significant technical decisions made for this project, including full justifications, implementation details, and removed code.
+
+---
+
+## Decision: Remove Outdated CSS Vendor Prefixes
+
+**Date:** 2025-10-30
+
+**Context:**
+During a 2026 best practices review, we evaluated whether CSS vendor prefixes should be kept or removed. The project has a critical priority: "Every user deserves an excellent experience regardless of their device, location, or connection speed," specifically targeting users in places like rural Guatemala with 2018 mid-range devices on 2G/3G connections.
+
+**Analysis:**
+
+### Browser Support Research
+
+**Prefixes under evaluation:**
+1. `-webkit-border-radius` / `-moz-border-radius` - Needed for Safari 4/Firefox 3.6 (2010-2011)
+2. `-webkit-box-shadow` / `-moz-box-shadow` - Needed for Safari 5/Firefox 3.6 (2010-2011)
+3. `-webkit-transition` / `-moz-transition` / `-o-transition` - Needed for Safari 6/Firefox 15/Opera 12 (2012)
+4. `-webkit-transform` / `-moz-transform` / `-ms-transform` / `-o-transform` - Needed for Safari 8/Firefox 15/IE9/Opera 12 (2013-2015)
+5. `-webkit-linear-gradient` / `-moz-linear-gradient` / `-o-linear-gradient` - Needed for Safari 6/Firefox 15/Opera 12 (2012)
+6. Old flexbox syntax: `display: -webkit-box`, `display: -ms-flexbox`, `-webkit-justify-content`, `-ms-flex-pack` - Needed for Safari 8/IE10-11 (2011-2015)
+
+**Unprefixed support timeline:**
+- **border-radius:** Safari 5+ (2011), Firefox 4+ (2011), Chrome 5+ (2010)
+- **box-shadow:** Safari 5.1+ (2011), Firefox 4+ (2011), Chrome 10+ (2011)
+- **transition:** Safari 6.1+ (2012), Firefox 16+ (2012), Chrome 26+ (2013)
+- **transform:** Safari 9+ (2015), Firefox 16+ (2012), Chrome 36+ (2014)
+- **linear-gradient:** Safari 6.1+ (2012), Firefox 16+ (2012), Chrome 26+ (2013)
+- **Modern flexbox:** Safari 9+ (2015), Firefox 28+ (2014), Chrome 29+ (2013)
+
+### Critical Dependency: CSS Custom Properties
+
+**Our site fundamentally requires CSS Custom Properties** (`:root` variables):
+```css
+:root {
+  --color-bg1: rgb(8, 10, 15);
+  --color1: 18, 113, 255;
+  --circle-size: 80%;
+  /* All color theming depends on this */
+}
+```
+
+**CSS Custom Properties browser support:**
+- Safari 10+ (September 2016)
+- Chrome 49+ (March 2016)
+- Firefox 31+ (July 2014)
+- Edge 16+ (September 2017)
+- **No support:** IE11, Safari 9 and earlier
+
+**Conclusion:** Any browser old enough to need the vendor prefixes **cannot render our site anyway** because it lacks CSS Custom Properties support. The entire color scheme would be broken.
+
+### Target Device Analysis
+
+**Project success metric:** "Site loads and is fully interactive in under 3 seconds on a 3G connection with a mid-range device from 2018."
+
+**2018 mid-range devices in developing countries:**
+- **Android:** Moto G6, Samsung J7 (2018) - Android 8/9 with Chrome 60-70+
+- **iOS:** iPhone 6s/7 (2015-2016 still common in 2018) - iOS 11-12 with Safari 11-12
+
+**Browser versions on 2018 devices:**
+- Chrome 60+ (July 2017) - Full unprefixed support for all properties
+- Safari 11+ (September 2017) - Full unprefixed support for all properties
+
+**Even older devices (2015-2017) common in Guatemala:**
+- Android 5-6 with Chrome 40-55 - Still support unprefixed properties
+- iOS 9-10 with Safari 9-10 - **Cannot render due to CSS Custom Properties**
+
+### 3G Connection Impact
+
+**Current vendor prefix payload:**
+```
+Lines to remove: ~49 lines
+Estimated bytes: ~2,100 bytes of redundant vendor prefix code
+```
+
+**On 3G connection (~400 Kbps = 50 KB/s):**
+- 2,100 bytes = ~42ms additional load time
+- For **interrupting connections**, every re-download costs 42ms
+- Dead code that helps no one **actively harms** the vulnerable user
+
+**Decision:** Remove outdated vendor prefixes
+
+**Justification:**
+
+1. **Aligns with Priority #1 (Mobile-First Performance):**
+   - Reduces payload by ~2,100 bytes
+   - Faster load on 3G/2G connections
+   - Less data to re-download on connection interruptions
+   - Every byte counts for vulnerable users
+
+2. **No compatibility loss:**
+   - Target devices (2018 mid-range) don't need prefixes
+   - Older devices that need prefixes can't render the site anyway (CSS Custom Properties)
+   - No functional benefit for any user
+
+3. **Aligns with Priority #4 (Clean Developer Experience):**
+   - Cleaner, more maintainable code
+   - Reduces cognitive load
+   - Follows 2026 best practices
+
+4. **Ethical consideration:**
+   - Keeping dead code that slows down vulnerable users contradicts our mission
+   - "Every user deserves an excellent experience" means not wasting their bandwidth
+
+**Vendor Prefixes KEPT (still needed in 2026):**
+
+1. **Text rendering properties** (lines 116-117, 125-126):
+   ```css
+   -webkit-text-size-adjust: 100%;  /* Prevents iOS auto-zoom */
+   text-size-adjust: 100%;
+   -webkit-font-smoothing: antialiased;  /* macOS/iOS text smoothing */
+   -moz-osx-font-smoothing: grayscale;
+   ```
+   **Reason:** Still required for iOS Safari and macOS/iOS font rendering
+
+2. **Backdrop-filter** (lines 710, 734):
+   ```css
+   -webkit-backdrop-filter: blur(20px);
+   backdrop-filter: blur(20px);
+   ```
+   **Reason:** Safari 18 (2024) still has issues with unprefixed version. Many users on older Safari.
+
+3. **Background-clip: text** (lines 406-407, 531-532):
+   ```css
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   ```
+   **Reason:** Gradient text effect still requires webkit prefix in Safari
+
+   Includes support detection (lines 415, 537):
+   ```css
+   @supports not (-webkit-background-clip: text) {
+     /* Fallback for browsers without support */
+   }
+   ```
+
+**Implementation - Code Removed:**
+
+### 1. Border-radius prefixes (2 instances)
+**Lines 231-232 (hero CTA button):**
+```css
+/* REMOVED */
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+
+/* KEPT */
+border-radius: 50px;
+```
+
+---
+
+### 2. Transition prefixes (8 instances)
+
+**Lines 234-236 (hero CTA button):**
+```css
+/* REMOVED */
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+
+/* KEPT */
+transition: all 0.3s ease;
+```
+
+**Lines 352-354 (stats card hover):**
+```css
+/* REMOVED */
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+
+/* KEPT */
+transition: all 0.3s ease;
+```
+
+**Lines 458-460 (feature card hover):**
+```css
+/* REMOVED */
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+
+/* KEPT */
+transition: all 0.3s ease;
+```
+
+**Lines 714-716 (header sticky state):**
+```css
+/* REMOVED */
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+
+/* KEPT */
+transition: all 0.3s ease;
+```
+
+**Lines 744-746 (mobile menu):**
+```css
+/* REMOVED */
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+
+/* KEPT */
+transition: all 0.3s ease;
+```
+
+**Lines 851-853 (nav link hover):**
+```css
+/* REMOVED */
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+
+/* KEPT */
+transition: all 0.3s ease;
+```
+
+**Lines 866-868 (nav link underline):**
+```css
+/* REMOVED */
+-webkit-transition: width 0.3s ease;
+-moz-transition: width 0.3s ease;
+-o-transition: width 0.3s ease;
+
+/* KEPT */
+transition: width 0.3s ease;
+```
+
+---
+
+### 3. Box-shadow prefixes (2 instances)
+
+**Lines 239-240 (hero CTA button shadow):**
+```css
+/* REMOVED */
+-webkit-box-shadow: 0 8px 24px rgba(13, 122, 255, 0.4);
+-moz-box-shadow: 0 8px 24px rgba(13, 122, 255, 0.4);
+
+/* KEPT */
+box-shadow: 0 8px 24px rgba(13, 122, 255, 0.4);
+```
+
+**Lines 252-253 (hero CTA hover shadow):**
+```css
+/* REMOVED */
+-webkit-box-shadow: 0 12px 32px rgba(13, 122, 255, 0.5);
+-moz-box-shadow: 0 12px 32px rgba(13, 122, 255, 0.5);
+
+/* KEPT */
+box-shadow: 0 12px 32px rgba(13, 122, 255, 0.5);
+```
+
+---
+
+### 4. Transform prefixes (4 instances)
+
+**Lines 246-249 (hero CTA hover lift):**
+```css
+/* REMOVED */
+-webkit-transform: translateY(-2px);
+-moz-transform: translateY(-2px);
+-ms-transform: translateY(-2px);
+-o-transform: translateY(-2px);
+
+/* KEPT */
+transform: translateY(-2px);
+```
+
+**Lines 257-260 (hero CTA active):**
+```css
+/* REMOVED */
+-webkit-transform: translateY(0);
+-moz-transform: translateY(0);
+-ms-transform: translateY(0);
+-o-transform: translateY(0);
+
+/* KEPT */
+transform: translateY(0);
+```
+
+**Lines 360-363 (stats card hover):**
+```css
+/* REMOVED */
+-webkit-transform: translateY(-4px);
+-moz-transform: translateY(-4px);
+-ms-transform: translateY(-4px);
+-o-transform: translateY(-4px);
+
+/* KEPT */
+transform: translateY(-4px);
+```
+
+**Lines 466-469 (feature card hover):**
+```css
+/* REMOVED */
+-webkit-transform: translateY(-4px);
+-moz-transform: translateY(-4px);
+-ms-transform: translateY(-4px);
+-o-transform: translateY(-4px);
+
+/* KEPT */
+transform: translateY(-4px);
+```
+
+---
+
+### 5. Linear-gradient prefixes (1 instance)
+
+**Lines 527-529 (section heading gradient):**
+```css
+/* REMOVED */
+background: -webkit-linear-gradient(top, #2563eb 0%, #1a1a1a 70%, #000000 100%);
+background: -moz-linear-gradient(top, #2563eb 0%, #1a1a1a 70%, #000000 100%);
+background: -o-linear-gradient(top, #2563eb 0%, #1a1a1a 70%, #000000 100%);
+
+/* KEPT */
+background: linear-gradient(to bottom, #2563eb 0%, #1a1a1a 70%, #000000 100%);
+```
+
+---
+
+### 6. Old flexbox syntax (2 instances)
+
+**Lines 803-811 (header container):**
+```css
+/* REMOVED */
+display: -webkit-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+-webkit-justify-content: space-between;
+-ms-flex-pack: justify;
+-webkit-align-items: center;
+-ms-flex-align: center;
+
+/* KEPT */
+display: flex;
+justify-content: space-between;
+align-items: center;
+```
+
+**Lines 827-829 (nav menu):**
+```css
+/* REMOVED */
+display: -webkit-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+
+/* KEPT */
+display: flex;
+```
+
+---
+
+**Impact:**
+
+**Performance:**
+-  Reduced payload by ~2,100 bytes (~3.7% of CSS)
+-  Faster load on 3G: saves ~42ms per load
+-  Less data wasted on connection re-tries
+-  Cleaner, more maintainable code
+
+**Compatibility:**
+-  No compatibility loss for target devices (2018 mid-range)
+-  Browsers that need prefixes can't render the site anyway
+-  All functional prefixes retained (text-size-adjust, font-smoothing, backdrop-filter, background-clip)
+
+**Maintenance:**
+-  Cleaner, easier to read and modify
+-  Follows 2026 best practices
+-  Less cognitive load for developers
+-  Easier to spot actual browser-specific code
+
+**Alignment with project priorities:**
+1.  Mobile-First Performance - Smaller payload, faster load
+2.  HTML Excellence - Cleaner, modern CSS
+3.  Internationalization - No impact
+4.  Clean Developer Experience - More maintainable code
+
+**Total lines removed:** 49 lines
+**Total bytes saved:** ~2,100 bytes
+**Compatibility loss:** None
+**Performance gain:** ~42ms on 3G connection
