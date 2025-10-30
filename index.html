@@ -1127,12 +1127,43 @@
            Footer Styles
            ================================================================ */
         .site-footer {
-          background: linear-gradient(135deg, rgb(8,10,15) 0%, rgb(0,17,32) 40%, rgb(20,15,45) 70%, rgb(40,20,60) 100%);
           color: rgba(255,255,255,.9);
           padding-block: 2.5rem;
           padding-inline: 1rem;
           font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
           text-align: start;
+        }
+
+        /* Dazzle Footer - Dynamic gradient background effect */
+        .dazzle-footer {
+          position: relative;
+          background: radial-gradient(60vmax 60vmax at 0% 0%, rgba(0, 0, 10, 0.9) 0%,
+                      rgba(0, 0, 10, 0) 95%),
+                      radial-gradient(80vmax 50vmax at 110% -10%, rgba(51, 255, 238, 0.9) 0%,
+                      rgba(0, 170, 255, 0.5) 50%, rgba(0, 0, 255, 0) 95%),
+                      radial-gradient(90vmax 50vmax at 50vmax 50vmax, rgba(119, 51, 255, 0.9) 0%,
+                      rgba(51, 51, 255, 0) 95%) rgb(0, 0, 10);
+        }
+
+        .dazzle-footer::before,
+        .dazzle-footer::after {
+          top: 0%;
+          left: -30%;
+          content: "";
+          position: absolute;
+          width: 60vw;
+          height: 40vh;
+          background: radial-gradient(50% 50%, rgba(0, 213, 255, 0.3),
+                      rgba(255, 255, 255, 0) 90%);
+          pointer-events: none;
+        }
+
+        .dazzle-footer::before {
+          transform: rotate(15deg);
+        }
+
+        .dazzle-footer::after {
+          transform: rotate(60deg);
         }
 
         .site-footer :focus-visible {
@@ -1141,6 +1172,8 @@
         }
 
         .footer-content {
+          position: relative;
+          z-index: 1;
           max-width: 1400px;
           margin-inline: auto;
         }
@@ -1367,7 +1400,7 @@
   </main>
 
   <!-- Site Footer -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer dazzle-footer" role="contentinfo">
     <div class="footer-content wrapper">
       <div class="footer-main">
         <section class="footer-section footer-brand" aria-label="Brand">
