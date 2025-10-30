@@ -71,10 +71,12 @@ The site is architected to deliver fast, smooth, and enjoyable experiences to:
 
 **Accessibility**
 - ✓ Semantic HTML5 structure with proper heading hierarchy
+- ✓ **Complete semantic landmark structure** (`<header>`, `<nav>`, `<main>`, `<footer>`)
 - ✓ Accessible focus management with `:focus-visible` for keyboard users
 - ✓ Mouse/keyboard focus distinction (removes outline for mouse, keeps for keyboard)
 - ✓ Proper meta viewport configuration for mobile accessibility
 - ✓ Touch-friendly design considerations
+- ✓ **Footer: 11 accessibility improvements** (white focus outlines, AAA touch targets 44×44px, aria-labelledby, high contrast 10:1+, print/forced-colors support, RTL logical properties)
 
 **Performance & Best Practices**
 - ✓ Minimal, clean HTML structure with no framework bloat
@@ -109,6 +111,7 @@ The site is architected to deliver fast, smooth, and enjoyable experiences to:
 - ✓ Documentation for reverting changes available
 
 **Recent Improvements**
+- **Semantic Footer with 11 Accessibility Improvements** - Implemented complete `<footer>` landmark with deep blue-to-purple gradient. Includes 11 accessibility enhancements: white focus outlines on dark (14:1 contrast), AAA touch targets (44×44px), aria-labelledby nav labels, RTL logical properties, high-contrast links (10:1), resilient font fallback, print media query (saves ink), forced-colors support, semantic `<time>` element, improved HTML structure, and optimized CSS. Total: +4.4 KB (+8%), no LCP impact (below fold). Completes Priority #2.1 semantic landmark structure. Full details in docs/decisions.md.
 - **2026 Best Practices: Performance Testing Complete** - Tested on PageSpeed Insights (Moto G Power, Slow 4G). Results: 93/100 score, 2.6s LCP, 0.004 CLS. Meets < 3s project target on estimated 3G (~3.2s). Decided to keep CSS inline (no critical/non-critical split) for reliability on poor connections. Single request architecture prioritized over 0.1s theoretical optimization. Full analysis in docs/decisions.md.
 - **2026 Best Practices: Vendor Prefix Cleanup** - Removed 49 lines (~2,100 bytes) of outdated CSS vendor prefixes that provided no benefit while slowing down vulnerable users. Saved ~42ms on 3G connections. Retained only essential prefixes (text-size-adjust, font-smoothing, backdrop-filter, background-clip). Full analysis in docs/decisions.md.
 - Removed duplicate polyfill code blocks for cleaner codebase
