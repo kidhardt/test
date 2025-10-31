@@ -1818,5 +1818,42 @@
             }
         })();
     </script>
+
+    <!-- Layout Instability API - CLS Monitoring -->
+    <script>
+        // Monitor Cumulative Layout Shift (CLS) for performance tracking
+        // Logs layout shifts to console to verify CLS optimizations are working
+        if ('PerformanceObserver' in window) {
+            let cls = 0;
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    // Only count shifts that weren't caused by recent user input
+                    if (!entry.hadRecentInput) {
+                        cls += entry.value;
+                        console.log('Layout shift detected:', {
+                            value: entry.value.toFixed(4),
+                            sources: entry.sources?.map(s => ({
+                                node: s.node?.tagName,
+                                previousRect: s.previousRect,
+                                currentRect: s.currentRect
+                            })),
+                            cumulativeCLS: cls.toFixed(4)
+                        });
+                    }
+                }
+            });
+
+            observer.observe({type: 'layout-shift', buffered: true});
+
+            // Report final CLS when page becomes hidden (tab close, navigation)
+            addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'hidden') {
+                    console.log('📊 Final CLS Score:', cls.toFixed(4),
+                                '| Target: < 0.1 |',
+                                cls < 0.1 ? '✅ PASS' : '❌ FAIL');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
