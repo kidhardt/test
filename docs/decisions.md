@@ -84,6 +84,134 @@ This document records significant technical decisions made for this project, inc
 
 ---
 
+## Decision: Brand Color Palette for Navigation Underlines
+
+**Date:** 2025-10-30
+
+**Context:**
+Established a vibrant, fully-saturated color palette for navigation menu underline animations. Colors sourced from brand asset files (bg_links_*.gif) to ensure consistency with existing brand materials.
+
+**Color Palette:**
+
+| Color Name | Hex Code | RGB Values | Source File | Usage |
+|------------|----------|------------|-------------|-------|
+| **Turquoise** | `#00FFFF` | `rgb(0, 255, 255)` | bg_links_turq.gif | Services navigation underline |
+| **Purple** | `#FF00FF` | `rgb(255, 0, 255)` | bg_links_purple.gif | Industries navigation underline |
+| **Orange** | `#ff6a13` | `rgb(255, 106, 19)` | Branded button | Insights navigation underline |
+| **Green** | `#00FF00` | `rgb(0, 255, 0)` | bg_links_green.gif | Contact navigation underline |
+| **Red** | `#FF0000` | `rgb(255, 0, 0)` | bg_links_red.gif | Reserved for future use |
+| **Blue** | `#0000FF` | `rgb(0, 0, 255)` | bg_links_blue.gif | Reserved for future use |
+
+**Navigation Menu Color Mapping:**
+
+```
+Services    Industries    Insights    Contact
+────────    ──────────    ────────    ───────
+#00FFFF     #FF00FF       #ff6a13     #00FF00
+turquoise   purple        orange      green
+```
+
+**Implementation:**
+- Individual `a[href="..."]::after` selectors for each menu item
+- Applied to both base state and `.header.scrolled` state
+- Underline animation remains: width 0 → 100%, 0.3s ease transition
+- Removed hover background color for cleaner effect
+
+**Color Theory:**
+- Cool → Cool → Warm → Cool pattern
+- All fully saturated colors (255 in at least one RGB channel)
+- Maximum brightness for visibility on all backgrounds
+- Distinct hues prevent confusion between adjacent items
+
+**CSS Implementation:**
+```css
+/* Base state */
+a[href="#services"]::after { background: #00FFFF; }
+a[href="#industries"]::after { background: #FF00FF; }
+a[href="#insights"]::after { background: #ff6a13; }
+a[href="#contact"]::after { background: #00FF00; }
+
+/* Scrolled header state */
+.header.scrolled a[href="#services"]::after { background: #00FFFF; }
+.header.scrolled a[href="#industries"]::after { background: #FF00FF; }
+.header.scrolled a[href="#insights"]::after { background: #ff6a13; }
+.header.scrolled a[href="#contact"]::after { background: #00FF00; }
+```
+
+**Alignment with Priorities:**
+- ✓ **Priority #1 (Performance):** Pure CSS, zero JavaScript, no performance impact
+- ✓ **Priority #2 (Accessibility):** High-contrast colors, distinct hues for color-blind users
+- ✓ **Priority #4 (Developer Experience):** Documented color system, easy to maintain
+
+**Brand Consistency:**
+- Colors sourced from existing brand assets
+- Creates cohesive visual language
+- Memorable, distinctive color sequence
+- Professional, modern appearance
+
+**Files Changed:**
+- index.html lines 771-784 (scrolled header colors)
+- index.html lines 876-889 (base state colors)
+- index.html lines 1300-1331 (footer animated underlines)
+
+**Footer Implementation:**
+Extended the colorful animated underlines to the site footer, matching the header navigation colors:
+- All footer links now feature animated underlines (width 0 → 100%, 0.3s ease)
+- Company navigation (Services, Industries, Insights, Contact) uses identical colors to header nav
+- Legal navigation (Terms, Privacy, Cookies) uses default footer link color (#b3dbff)
+- Removed static text-decoration underline in favor of animated ::after pseudo-element
+- Maintains all accessibility improvements (44×44px touch targets, white focus outlines, high contrast)
+
+```css
+/* Footer animated underlines */
+.site-footer a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #b3dbff;  /* Default for Legal links */
+  transition: width 0.3s ease;
+}
+
+.site-footer a:hover::after {
+  width: 100%;
+}
+
+/* Company nav matches header colors */
+.footer-nav a[href="#services"]::after { background: #00FFFF; }
+.footer-nav a[href="#industries"]::after { background: #FF00FF; }
+.footer-nav a[href="#insights"]::after { background: #ff6a13; }
+.footer-nav a[href="#contact"]::after { background: #00FF00; }
+```
+
+**Footer Logo Implementation:**
+Replaced text-based footer logo with white branded image logo:
+- Width: 200px (responsive with max-width: 100%)
+- Aspect ratio: 620/69 to prevent CLS
+- Display: block for proper layout
+- Maintains 0.5rem bottom margin for spacing with tagline
+- Semantic h2 wrapper preserved for SEO and accessibility
+- Uses same abc-translations-logo-white.png as header
+
+```css
+.footer-logo {
+  margin: 0 0 .5rem 0;
+  line-height: 1;
+}
+
+.footer-logo img {
+  width: 200px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  aspect-ratio: 620 / 69;
+}
+```
+
+---
+
 ## Decision: Eliminate CLS Through Layout Instability API Monitoring and Targeted Fixes
 
 **Date:** 2025-10-30

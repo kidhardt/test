@@ -370,6 +370,7 @@
           padding: 2rem;
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
           transition: all 0.3s ease;
+          text-align: center;
         }
 
         .stats-grid .card:hover {
@@ -761,11 +762,27 @@
         .header.scrolled .nav-link:hover,
         .header.scrolled .nav-link:focus {
           color: #ffffff;
-          background-color: rgba(255, 255, 255, 0.15);
         }
 
         .header.scrolled .nav-link::after {
           background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Individual colorful underlines for scrolled header */
+        .header.scrolled a[href="#services"]::after {
+          background: #00FFFF;  /* Turquoise */
+        }
+
+        .header.scrolled a[href="#industries"]::after {
+          background: #FF00FF;  /* Purple */
+        }
+
+        .header.scrolled a[href="#insights"]::after {
+          background: #ff6a13;  /* Orange (from branded button) */
+        }
+
+        .header.scrolled a[href="#contact"]::after {
+          background: #00FF00;  /* Green */
         }
 
         /* Ensure hamburger menu stays white on scroll */
@@ -854,6 +871,23 @@
 
         .nav-link:hover::after {
           width: 100%;
+        }
+
+        /* Individual colorful underlines for each nav item */
+        a[href="#services"]::after {
+          background: #00FFFF;  /* Turquoise */
+        }
+
+        a[href="#industries"]::after {
+          background: #FF00FF;  /* Purple */
+        }
+
+        a[href="#insights"]::after {
+          background: #ff6a13;  /* Orange (from branded button) */
+        }
+
+        a[href="#contact"]::after {
+          background: #00FF00;  /* Green */
         }
 
         /* Mobile Menu Toggle */
@@ -1221,9 +1255,16 @@
         }
 
         .footer-logo {
-          font-size: 1.5rem;
-          font-weight: 800;
           margin: 0 0 .5rem 0;
+          line-height: 1;
+        }
+
+        .footer-logo img {
+          width: 200px;
+          height: auto;
+          max-width: 100%;
+          display: block;
+          aspect-ratio: 620 / 69;
         }
 
         .footer-tagline {
@@ -1252,7 +1293,6 @@
         .site-footer a:hover,
         .site-footer a:focus {
           color: #e6f4ff;
-          text-decoration: underline;
         }
 
         .site-footer a {
@@ -1261,6 +1301,40 @@
           padding-block: .5rem;
           padding-inline: .25rem;
           line-height: 1.2;
+          position: relative;
+        }
+
+        /* Animated underline for footer links */
+        .site-footer a::after {
+          content: "";
+          position: absolute;
+          bottom: 0.5rem;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: #b3dbff;  /* Default footer link color */
+          transition: width 0.3s ease;
+        }
+
+        .site-footer a:hover::after {
+          width: 100%;
+        }
+
+        /* Individual colorful underlines for footer Company nav */
+        .footer-nav a[href="#services"]::after {
+          background: #00FFFF;  /* Turquoise */
+        }
+
+        .footer-nav a[href="#industries"]::after {
+          background: #FF00FF;  /* Purple */
+        }
+
+        .footer-nav a[href="#insights"]::after {
+          background: #ff6a13;  /* Orange (from branded button) */
+        }
+
+        .footer-nav a[href="#contact"]::after {
+          background: #00FF00;  /* Green */
         }
 
         .footer-bottom {
@@ -1449,7 +1523,9 @@
     <div class="footer-content wrapper">
       <div class="footer-main">
         <section class="footer-section footer-brand" aria-label="Brand">
-          <h2 class="footer-logo">ABC Translations</h2>
+          <h2 class="footer-logo">
+            <img src="assets/images/abc-translations-logo-white.png" alt="ABC Translations" width="620" height="69">
+          </h2>
           <p class="footer-tagline">Connecting Worlds, One Word at a Time.</p>
         </section>
 
