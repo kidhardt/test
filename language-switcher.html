@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Switcher</title>
+    <!-- Lato font preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -82,6 +86,7 @@
 
         .language-dropdown li {
             margin: 0;
+            position: relative;
         }
 
         .language-dropdown a {
@@ -91,6 +96,7 @@
             text-decoration: none;
             transition: background 0.2s ease;
             font-size: 0.95rem;
+            position: relative;
         }
 
         .language-dropdown a:hover {
@@ -100,6 +106,42 @@
         .language-dropdown a.active {
             background: #e3f2fd;
             font-weight: 600;
+        }
+
+        /* Tooltip styles */
+        .language-tooltip {
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 1rem;
+            background: #163f71;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 1001;
+            pointer-events: none;
+            font-weight: 400;
+        }
+
+        .language-tooltip::before {
+            content: "";
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 6px solid transparent;
+            border-right-color: #163f71;
+        }
+
+        .language-dropdown li:hover .language-tooltip {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Scrollbar styling */
@@ -129,25 +171,82 @@
         </button>
         <div class="language-dropdown" id="languageDropdown">
             <ul>
-                <li><a href="/solutions" class="active">English</a></li>
-                <li><a href="/id">Bahasa Indonesia</a></li>
-                <li><a href="/de/solutions">Deutsch</a></li>
-                <li><a href="/es/solutions">Español (España)</a></li>
-                <li><a href="/es-la/solutions">Español (América Latina)</a></li>
-                <li><a href="/fr/solutions">Français</a></li>
-                <li><a href="/fr-ca/solutions">Français (Canada)</a></li>
-                <li><a href="/it/solutions">Italiano</a></li>
-                <li><a href="/nl">Nederlands</a></li>
-                <li><a href="/pl">Polski</a></li>
-                <li><a href="/pt/solutions">Português</a></li>
-                <li><a href="/ru">Русский</a></li>
-                <li><a href="/sv">Svenska</a></li>
-                <li><a href="/tr">Türkçe</a></li>
-                <li><a href="/ko/solutions">한국어</a></li>
-                <li><a href="/ja/solutions">日本語</a></li>
-                <li><a href="/cn/solutions">中文 (简体)</a></li>
-                <li><a href="/zh">中文 (繁體)</a></li>
-                <li><a href="/ar">عربى</a></li>
+                <li>
+                    <a href="/solutions" class="active" data-hello="Hello World">English</a>
+                    <span class="language-tooltip">Hello World</span>
+                </li>
+                <li>
+                    <a href="/id" data-hello="Halo Dunia">Bahasa Indonesia</a>
+                    <span class="language-tooltip">Halo Dunia</span>
+                </li>
+                <li>
+                    <a href="/de/solutions" data-hello="Hallo Welt">Deutsch</a>
+                    <span class="language-tooltip">Hallo Welt</span>
+                </li>
+                <li>
+                    <a href="/es/solutions" data-hello="Hola Mundo">Español (España)</a>
+                    <span class="language-tooltip">Hola Mundo</span>
+                </li>
+                <li>
+                    <a href="/es-la/solutions" data-hello="Hola, mundo">Español (América Latina)</a>
+                    <span class="language-tooltip">Hola, mundo</span>
+                </li>
+                <li>
+                    <a href="/fr/solutions" data-hello="Bonjour le monde">Français</a>
+                    <span class="language-tooltip">Bonjour le monde</span>
+                </li>
+                <li>
+                    <a href="/fr-ca/solutions" data-hello="Bonjour le monde">Français (Canada)</a>
+                    <span class="language-tooltip">Bonjour le monde</span>
+                </li>
+                <li>
+                    <a href="/it/solutions" data-hello="Ciao mondo">Italiano</a>
+                    <span class="language-tooltip">Ciao mondo</span>
+                </li>
+                <li>
+                    <a href="/nl" data-hello="Hallo wereld">Nederlands</a>
+                    <span class="language-tooltip">Hallo wereld</span>
+                </li>
+                <li>
+                    <a href="/pl" data-hello="Witaj świecie">Polski</a>
+                    <span class="language-tooltip">Witaj świecie</span>
+                </li>
+                <li>
+                    <a href="/pt/solutions" data-hello="Olá mundo">Português</a>
+                    <span class="language-tooltip">Olá mundo</span>
+                </li>
+                <li>
+                    <a href="/ru" data-hello="Здравствуй, мир!">Русский</a>
+                    <span class="language-tooltip">Здравствуй, мир!</span>
+                </li>
+                <li>
+                    <a href="/sv" data-hello="Hej världen">Svenska</a>
+                    <span class="language-tooltip">Hej världen</span>
+                </li>
+                <li>
+                    <a href="/tr" data-hello="Merhaba Dünya">Türkçe</a>
+                    <span class="language-tooltip">Merhaba Dünya</span>
+                </li>
+                <li>
+                    <a href="/ko/solutions" data-hello="세계로 뻬어나가세요">한국어</a>
+                    <span class="language-tooltip">세계로 뻬어나가세요</span>
+                </li>
+                <li>
+                    <a href="/ja/solutions" data-hello="こんにちは世界">日本語</a>
+                    <span class="language-tooltip">こんにちは世界</span>
+                </li>
+                <li>
+                    <a href="/cn/solutions" data-hello="你好世界">中文 (简体)</a>
+                    <span class="language-tooltip">你好世界</span>
+                </li>
+                <li>
+                    <a href="/zh" data-hello="你好世界">中文 (繁體)</a>
+                    <span class="language-tooltip">你好世界</span>
+                </li>
+                <li>
+                    <a href="/ar" data-hello="مرحبا بالعالم">عربى</a>
+                    <span class="language-tooltip">مرحبا بالعالم</span>
+                </li>
             </ul>
         </div>
     </div>
