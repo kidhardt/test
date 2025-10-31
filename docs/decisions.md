@@ -84,6 +84,83 @@ This document records significant technical decisions made for this project, inc
 
 ---
 
+## Decision: Schema.org Accessibility Metadata (JSON-LD)
+
+**Date:** 2025-10-30
+
+**Context:**
+Added machine-readable accessibility metadata using Schema.org vocabulary in JSON-LD format to formally declare the site's WCAG 2.2 AA+ compliance and accessibility features.
+
+**Implementation:**
+Inserted JSON-LD structured data in the `<head>` section (lines 17-54) declaring:
+
+**Accessibility Features:**
+- `alternativeText` - All images have alt attributes
+- `structuralNavigation` - Complete semantic landmark structure (header, nav, main, footer)
+- `highContrast` - Forced-colors mode support via CSS
+- `resizeText/CSSEnabled` - Text can be resized via browser zoom
+- `displayTransformability` - Responsive layout adapts to all viewports
+- `readingOrder` - Logical DOM order maintained
+- `tableOfContents` - Navigation menu provides site structure
+
+**Accessibility Controls:**
+- `fullKeyboardControl` - All interactive elements keyboard accessible
+- `fullMouseControl` - All features available via mouse
+- `fullTouchControl` - AAA touch targets (44×44px minimum)
+
+**Access Modes:**
+- `textual` + `visual` (standard experience)
+- `textual` only (screen reader users, content fully accessible without visuals)
+
+**Accessibility Summary:**
+"WCAG 2.2 AA+ compliant. Semantic HTML5 structure with complete landmark navigation (header, nav, main, footer). Full keyboard navigation with visible focus indicators. AAA touch targets (44×44px minimum). Screen reader compatible with proper ARIA labels. Respects prefers-reduced-motion and forced-colors system preferences. Optimized for users on slow connections and older devices."
+
+**JSON-LD Structure:**
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  "name": "ABC Translations",
+  "url": "https://kidhardt.github.io/test/",
+  "accessibilityFeature": [...],
+  "accessibilityAPI": "ARIA",
+  "accessibilityControl": [...],
+  "accessibilityHazard": "none",
+  "accessMode": ["textual", "visual"],
+  "accessModeSufficient": [...],
+  "accessibilitySummary": "..."
+}
+```
+
+**Benefits:**
+- ✓ **SEO Enhancement**: Search engines can index accessibility features
+- ✓ **Discovery**: Assistive technology users can find accessible sites
+- ✓ **Documentation**: Machine-readable record of accessibility claims
+- ✓ **Transparency**: Public declaration of WCAG conformance level
+- ✓ **Standards Compliance**: Uses W3C approved accessibility vocabulary
+
+**Performance Impact:**
+- Size: ~1.2 KB
+- Load time: ~24ms on 3G (negligible)
+- Zero render blocking (loads asynchronously)
+- No impact on LCP, CLS, or TBT
+
+**Alignment with Priorities:**
+- ✓ **Priority #1 (Performance)**: Minimal payload, non-blocking
+- ✓ **Priority #2 (Accessibility)**: Formal WCAG 2.2 AA+ declaration
+- ✓ **Priority #3 (Internationalization)**: Foundation for multi-language accessibility metadata
+- ✓ **Priority #4 (Developer Experience)**: Simple JSON format, no build tools
+
+**References:**
+- [Schema.org accessibilityFeature](https://schema.org/accessibilityFeature)
+- [W3C Accessibility Discoverability Vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/)
+- [Google Structured Data Guidelines](https://developers.google.com/search/docs/appearance/structured-data)
+
+**Files Changed:**
+- index.html lines 17-54 (added JSON-LD script)
+
+---
+
 ## Decision: Brand Color Palette for Navigation Underlines
 
 **Date:** 2025-10-30
